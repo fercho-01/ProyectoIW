@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-may-2016 21:47:24 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="co.edu.udea.iw.dto.Empleado" table="EMPLEADO">
+        <id name="cedula" type="java.lang.String">
+            <column name="CEDULA" not-null="true" length="15"/>
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" not-null="true" length="30"/>
+        </property>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" not-null="true" length="60"/>
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" not-null="true" length="120"/>
+        </property>
+        <property name="cargo" type="java.lang.String">
+            <column name="CARGO"  not-null="true" length="30"/>
+        </property>
+    </class>
+</hibernate-mapping>
