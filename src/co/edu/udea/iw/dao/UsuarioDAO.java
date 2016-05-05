@@ -9,9 +9,8 @@ import co.edu.udea.iw.util.exception.MyException;
  * 
  */
 public interface UsuarioDAO {
-	public void guardar(Usuario usuario)throws MyException;
+	public void insertar(Usuario usuario)throws MyException;
 	public void modificar(Usuario usuario)throws MyException;
-	public void eliminar(String cedula)throws MyException;
 	public Usuario obtener(String cedula)throws MyException;
 	public List<Usuario> obtener()throws MyException;
 }

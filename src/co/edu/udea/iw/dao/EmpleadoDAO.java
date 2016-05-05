@@ -12,7 +12,6 @@ import co.edu.udea.iw.util.exception.MyException;
 public interface EmpleadoDAO {
 	public void guardar(Empleado empleado)throws MyException;
 	public void modificar(Empleado empleado)throws MyException;
-	public void eliminar(String cedula)throws MyException;
 	public Empleado obtener(String cedula)throws MyException;
 	public List<Empleado> obtener()throws MyException;
 }

@@ -10,7 +10,6 @@ import co.edu.udea.iw.util.exception.MyException;
 public interface PqrDAO {
 	public void guardar(Pqr pqr)throws MyException;
 	public void modificar(Pqr pqr)throws MyException;
-	public void eliminar(int id)throws MyException;
 	public Pqr obtener(int id)throws MyException;
 	public List<Pqr> obtener()throws MyException;
 }

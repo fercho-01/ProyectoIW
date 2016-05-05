@@ -10,7 +10,6 @@ import co.edu.udea.iw.util.exception.MyException;
 public interface EncuestaDAO {
 	public void guardar(Encuesta encuesta)throws MyException;
 	public void modificar(Encuesta encuesta)throws MyException;
-	public void eliminar(int id)throws MyException;
 	public Encuesta obtener(int id)throws MyException;
 	public List<Encuesta> obtener()throws MyException;
 }
