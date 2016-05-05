@@ -15,7 +15,7 @@
             <column name="NOMBRE" not-null="true" length="60"/>
         </property>
         <property name="email" type="java.lang.String">
-            <column name="EMAIL" not-null="true" length="120"/>
+            <column name="EMAIN" not-null="true" length="120"/>
         </property>
     </class>
 </hibernate-mapping>
