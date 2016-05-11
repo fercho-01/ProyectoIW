@@ -1,4 +1,9 @@
-create table usuario(
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+CREATE DATABASE `prueba` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `prueba`;
+
+
+create table if not exists `usuario`(
   cedula varchar(15) not null,
   password varchar(30) not null,
   nombre varchar(60) not null,
@@ -6,7 +11,7 @@ create table usuario(
   primary key(cedula)
 );
 
-create table empleado(
+create table if not exists `empleado`(
   cedula varchar(15) not null,
   password varchar(30) not null,
   nombre varchar(60) not null,
@@ -15,7 +20,7 @@ create table empleado(
   primary key(cedula)
 );
 
-create table pqr(
+create table if not exists `pqr`(
   usuario varchar(15) not null,
   id int(12) not null auto_increment,
   tipo varchar(30) not null,
@@ -30,7 +35,7 @@ create table pqr(
   foreign key(empleado) references empleado(cedula)
 );
 
-create table encuesta(
+create table if not exists `encuesta`(
   usuario varchar(15) not null,
   idPqr int(12) not null,
   id int(15)  auto_increment,
