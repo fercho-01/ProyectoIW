@@ -2,15 +2,15 @@ package co.edu.udea.iw.dao;
 
 import java.util.List;
 import co.edu.udea.iw.dto.Usuario;
-import co.edu.udea.iw.util.exception.MyException;
+import co.edu.udea.iw.util.exception.DaoException;
 /*
  * Interfaz que define los metodos que va a implementar el dao de Usuario
  * @author LUIS FERNANDO OROZCO
  * 
  */
 public interface UsuarioDAO {
-	public void insertar(Usuario usuario)throws MyException;
-	public void modificar(Usuario usuario)throws MyException;
-	public Usuario obtener(String cedula)throws MyException;
-	public List<Usuario> obtener()throws MyException;
+	public void insertar(Usuario usuario)throws DaoException;
+	public void modificar(Usuario usuario)throws DaoException;
+	public Usuario obtener(String cedula)throws DaoException;
+	public List<Usuario> obtener()throws DaoException;
 }

@@ -52,6 +52,14 @@
 	    <property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
+	<bean id="usuarioService" class="co.edu.udea.iw.service.UsuarioService">
+	    <property name="usuarioDAO" ref="UsuarioDAO"></property>
+	</bean>
+	<bean id="pqrService" class="co.edu.udea.iw.service.PqrService">
+	    <property name="pqrDAO" ref="PqrDAO"></property>
+	</bean>
+	
+	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>

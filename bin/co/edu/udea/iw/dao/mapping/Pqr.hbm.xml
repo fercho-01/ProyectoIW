@@ -29,6 +29,7 @@
         <many-to-one name="empleado" class="co.edu.udea.iw.dto.Empleado" fetch="join">
         	<column name="empleado" not-null="true" length="15"/>
         </many-to-one>
+        
         <property name="fechaRespuesta" type="java.util.Date">
             <column name="FECHARESPUESTA" />
         </property>

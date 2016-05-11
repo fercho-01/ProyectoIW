@@ -10,7 +10,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import co.edu.udea.iw.dao.UsuarioDAO;
 import co.edu.udea.iw.dto.Usuario;
-import co.edu.udea.iw.util.exception.MyException;
+import co.edu.udea.iw.util.exception.DaoException;
 /*
  * Implementacion de la interfaz UsuarioDAO
  * @author LUIS FERNANDO OROZCO
@@ -18,43 +18,43 @@ import co.edu.udea.iw.util.exception.MyException;
 public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioDAO{
 
 	@Override
-	public void insertar(Usuario usuario) throws MyException {
+	public void insertar(Usuario usuario) throws DaoException {
 		Session session=null;
 		try{
 			session = getHibernateTemplate().getSessionFactory().getCurrentSession();
 			session.save(usuario);
 		}catch(HibernateException e){
-			throw new MyException(e);
+			throw new DaoException(e);
 		}
 	}
 
 	@Override
-	public void modificar(Usuario usuario) throws MyException {
+	public void modificar(Usuario usuario) throws DaoException {
 		Session session = null;
 		try{
 			session=getHibernateTemplate().getSessionFactory().getCurrentSession();
 			session.update(usuario);
 		}catch(HibernateException e){
-			throw new MyException(e);
+			throw new DaoException(e);
 		}
 	}
 
 
 	@Override
-	public Usuario obtener(String cedula) throws MyException {
+	public Usuario obtener(String cedula) throws DaoException {
 		Usuario usuario = null;
 		Session session = null;
 		try{
 			session = getHibernateTemplate().getSessionFactory().getCurrentSession();
 			usuario = (Usuario)session.get(Usuario.class, cedula);
 		}catch(HibernateException e){
-			throw new MyException(e);
+			throw new DaoException(e);
 		}
 		return usuario;
 	}
 
 	@Override
-	public List<Usuario> obtener() throws MyException {
+	public List<Usuario> obtener() throws DaoException {
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 		Session session = null;
 		try{
@@ -62,7 +62,7 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 			Criteria criteria = session.createCriteria(Usuario.class);
 			usuarios = criteria.list();
 		}catch(HibernateException e){
-			throw new MyException();
+			throw new DaoException();
 		}
 		return usuarios;
 	}
