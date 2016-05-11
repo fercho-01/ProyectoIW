@@ -10,12 +10,12 @@ public class Pqr implements Serializable{
 	
 	//atributos
 	private int id;
-	private String usuario;
+	private Usuario usuario;
 	private String tipo;
 	private String estado;
 	private String descripcion;
 	private String respuesta;
-	private String empleado;
+	private Empleado empleado;
 	private Date fechaRespuesta;
 	private Date fechaSolicitud;
 	
@@ -26,10 +26,10 @@ public class Pqr implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(String usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 	public String getTipo() {
@@ -56,10 +56,10 @@ public class Pqr implements Serializable{
 	public void setRespuesta(String respuesta) {
 		this.respuesta = respuesta;
 	}
-	public String getEmpleado() {
+	public Empleado getEmpleado() {
 		return empleado;
 	}
-	public void setEmpleado(String empleado) {
+	public void setEmpleado(Empleado empleado) {
 		this.empleado = empleado;
 	}
 	public Date getFechaRespuesta() {

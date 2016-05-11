@@ -12,7 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 import co.edu.udea.iw.util.encode.Cifrar;
 import co.edu.udea.iw.util.exception.DaoException;
 import co.edu.udea.iw.util.exception.ServiceException;
-
+/*
+ * Pruebas de la clase UsuarioService
+ * @author LUIS FERNANDO OROZCO
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @ContextConfiguration(locations="classpath:configuracion.xml")
@@ -21,6 +24,9 @@ public class UsuarioServiceTest {
 	@Autowired
 	UsuarioService usuarioService;
 	
+	/*
+	 * Prueba para el metodo CrearUsuario
+	 */
 	@Test
 	public void testCrearUsuario() {
 		try {
@@ -35,7 +41,9 @@ public class UsuarioServiceTest {
 		}
 	}
 
-	
+	/*
+	 * Prueba para el metodo Login
+	 */
 	@Test
 	public void testLogin() {
 		try {

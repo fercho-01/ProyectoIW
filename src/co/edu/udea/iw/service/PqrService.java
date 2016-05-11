@@ -6,17 +6,28 @@ import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.iw.dao.PqrDAO;
 import co.edu.udea.iw.dto.Pqr;
+import co.edu.udea.iw.dto.Usuario;
 import co.edu.udea.iw.util.exception.DaoException;
 import co.edu.udea.iw.util.exception.ServiceException;
 import co.edu.udea.iw.util.validations.Validaciones;
+/*
+ * Metodos para realizar operaciones con PQR
+ * @author LUIS FERNANDO OROZCO
+ */
 
 @Transactional
 public class PqrService {
 	private PqrDAO pqrDAO;
 	
+	/*
+	 * Metodo para almacenar un pqr nuevo
+	 * @param usuario Usuario que realiza la solicitud
+	 * @param tipo Tipo de pqr
+	 * @param descripcion Descripcion con el motivo del pqr
+	 */
 	@Transactional
-	public void realiarPqr(String cedula,String tipo, String descripcion) throws ServiceException, DaoException{
-		if(Validaciones.isTextoVacio(cedula)){
+	public void realiarPqr(Usuario usuario,String tipo, String descripcion) throws ServiceException, DaoException{
+		if(usuario==null){
 			throw new ServiceException("cedula vacia");
 		}
 		if(Validaciones.isTextoVacio(tipo)){
@@ -26,16 +37,14 @@ public class PqrService {
 			throw new ServiceException("descripcion vacia");
 		}
 		
-		String empleado = "123456"; //cedula del administrador
 		Date fecha = new Date();
 		
 		Pqr pqr = new Pqr();
 		pqr.setTipo(tipo);
 		pqr.setDescripcion(descripcion);
-		//pqr.setEmpleado(empleado);
 		pqr.setEstado("pendiente");
 		pqr.setFechaSolicitud(fecha);
-		pqr.setUsuario(cedula);
+		pqr.setUsuario(usuario);
 		pqrDAO.guardar(pqr);
 	}
 

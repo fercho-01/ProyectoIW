@@ -15,7 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 import co.edu.udea.iw.dao.UsuarioDAO;
 import co.edu.udea.iw.dto.Usuario;
 import co.edu.udea.iw.util.exception.DaoException;
-
+/*
+ * Clase con las pruebas de usuarioDAOHibernate
+ * @author LUIS FERNANDO OROZCO
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @ContextConfiguration(locations = "classpath:configuracion.xml")
@@ -23,6 +26,10 @@ public class UsuarioDAOHibernateTest {
 	
 	@Autowired
 	UsuarioDAO usuarioDao;
+	
+	/*
+	 * Pruena para el metodo insertar
+	 */
 	
 	@Test
 	//@Rollback(false) para que en verdad inserte en la base de datos
@@ -47,6 +54,9 @@ public class UsuarioDAOHibernateTest {
 		
 	}
 	
+	/*
+	 * Prueba para el metodo obtener
+	 */
 	@Test
 	public void testObtenerString() {
 		try {
