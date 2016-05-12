@@ -31,9 +31,10 @@ public class UsuarioService {
 	 * @param password La contraseña del usuario
 	 * @param nombre El nombre del usuario
 	 * @param email El email del usuario
+	 * @return true si se realiza la operacion exitosamente
 	 */
 	@Transactional
-	public void crearUsuario(String cedula, String password, String nombre, String email) throws ServiceException, DaoException{
+	public boolean crearUsuario(String cedula, String password, String nombre, String email) throws ServiceException, DaoException{
 		
 		if(Validaciones.isTextoVacio(cedula)){
 			throw new ServiceException("Cedula vacia");
@@ -61,6 +62,7 @@ public class UsuarioService {
 		usuario.setEmail(email);
 		
 		usuarioDAO.insertar(usuario);
+		return true;
 	}
 	
 	/*

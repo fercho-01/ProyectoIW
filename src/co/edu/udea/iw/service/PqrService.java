@@ -28,9 +28,10 @@ public class PqrService {
 	 * @param usuario Usuario que realiza la solicitud
 	 * @param tipo Tipo de pqr
 	 * @param descripcion Descripcion con el motivo del pqr
+	 * @return true si se realiza la operacion exitosamente
 	 */
 	@Transactional
-	public void realiarPqr(Usuario usuario,String tipo, String descripcion) throws ServiceException, DaoException{
+	public boolean realiarPqr(Usuario usuario,String tipo, String descripcion) throws ServiceException, DaoException{
 		if(usuario==null){
 			throw new ServiceException("cedula vacia");
 		}
@@ -52,9 +53,10 @@ public class PqrService {
 		pqrDAO.guardar(pqr);
 		String correo = "Administrador@udea.edu.co";
 		Mail.send(correo, usuario, pqr);
+		return true;
 	}
 	
-	public void realizarRevision() throws ServiceException, DaoException{
+	public boolean realizarRevision() throws ServiceException, DaoException{
 		
 		String noRespondidos="Los pqrs que no han sido respuestos son:\n \n  ";
 		String insatisfechos= "Los usuarios que estan insatisfechos con el servicio son: \n \n";
@@ -81,8 +83,9 @@ public class PqrService {
 			
 		}catch(DaoException e){
 			e.printStackTrace();
-			
+			return false;
 		}
+		return true;
 	}
 
 	public PqrDAO getPqrDAO() {

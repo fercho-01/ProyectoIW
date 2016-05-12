@@ -61,6 +61,9 @@
 	<bean id="empleadoService" class="co.edu.udea.iw.service.EmpleadoService">
 		<property name="pqrDAO" ref="PqrDAO"></property>
 	</bean>
+	<bean id="encuestaService" class="co.edu.udea.iw.service.EncuestaService">
+		<property name="encuestaDAO" ref="EncuestaDAO"></property>
+	</bean>
 	
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>

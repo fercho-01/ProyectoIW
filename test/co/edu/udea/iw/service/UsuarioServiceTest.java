@@ -16,6 +16,8 @@ import co.edu.udea.iw.util.exception.ServiceException;
 /*
  * Pruebas de la clase UsuarioService
  * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
@@ -34,7 +36,8 @@ public class UsuarioServiceTest {
 	public void testCrearUsuario() {
 		logger.info("la prueba de Crear usuario ha iniciado");
 		try {
-			usuarioService.crearUsuario("1111", "luis", "luis", "l@udea.edu.co");
+			boolean check = usuarioService.crearUsuario("1111", "luis", "luis", "l@udea.edu.co");
+			assertTrue(check);
 			System.out.println(new Cifrar().encrypt("123"));
 		} catch (ServiceException e) {
 			e.printStackTrace();
@@ -56,7 +59,8 @@ public class UsuarioServiceTest {
 		
 		logger.info("se inicia la prueba de login");
 		try {
-			usuarioService.login("123", "123");
+			boolean check = usuarioService.login("123", "123");
+			assertTrue(check);
 		} catch (DaoException e) {
 			e.printStackTrace();
 			fail(e.getMessage());

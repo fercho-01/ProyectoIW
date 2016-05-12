@@ -13,8 +13,8 @@ public class Encuesta implements Serializable{
 	
 	//atributos
 	private int id;
-	private String usuario;
-	private int idPqr;
+	private Usuario usuario;
+	private Pqr idPqr;
 	private String descripcion;
 	private Date fecha;
 	
@@ -25,16 +25,16 @@ public class Encuesta implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(String usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	public int getIdPqr() {
+	public Pqr getIdPqr() {
 		return idPqr;
 	}
-	public void setIdPqr(int idPqr) {
+	public void setIdPqr(Pqr idPqr) {
 		this.idPqr = idPqr;
 	}
 	public String getDescripcion() {

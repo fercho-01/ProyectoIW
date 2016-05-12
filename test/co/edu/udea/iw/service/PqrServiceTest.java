@@ -20,6 +20,8 @@ import co.edu.udea.iw.util.exception.ServiceException;
 /*
  * Pruebas para la clase PqrService
  * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
@@ -43,7 +45,8 @@ public class PqrServiceTest {
 		usuario.setEmail("l@udea.edu.co");
 		
 		try {
-			pqrService.realiarPqr(usuario, "queja", "no me gusta el servicio");
+			boolean check = pqrService.realiarPqr(usuario, "queja", "no me gusta el servicio");
+			assertTrue(check);
 		} catch (ServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,7 +68,8 @@ public class PqrServiceTest {
 
 		logger.info("ha iniciado la prueba de realizar Revision");
 		try {
-			pqrService.realizarRevision();
+			boolean check = pqrService.realizarRevision();
+			assertTrue(check);
 		} catch (DaoException e) {
 			e.printStackTrace();
 			fail();

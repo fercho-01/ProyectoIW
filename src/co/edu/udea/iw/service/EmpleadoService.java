@@ -19,8 +19,9 @@ public class EmpleadoService {
 	 * Metodo que le permite al administrador delegar la responsabilidad de responder un pqr
 	 * @param empleado Empleado al cual le toca responder el pqr
 	 * @param pqr Pqr a la cual se le va a asignar el empleado
+	 * @return true si se realiza la operacion exitosamente
 	 */
-	public void modificarPqr(Empleado empleado,Pqr pqr) throws DaoException, ServiceException{
+	public boolean modificarPqr(Empleado empleado,Pqr pqr) throws ServiceException, DaoException{
 		if(empleado == null){
 			throw new ServiceException("empleado null");
 		}
@@ -30,6 +31,7 @@ public class EmpleadoService {
 		pqr.setEmpleado(empleado);
 		pqrDAO.modificar(pqr);
 		Mail.send(empleado.getEmail(), pqr.getUsuario(), pqr);
+		return true;
 	}
 	public PqrDAO getPqrDAO() {
 		return pqrDAO;
