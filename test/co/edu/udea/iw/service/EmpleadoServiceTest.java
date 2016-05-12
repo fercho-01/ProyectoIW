@@ -11,35 +11,46 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import co.edu.udea.iw.dao.PqrDAO;
+import co.edu.udea.iw.dto.Empleado;
 import co.edu.udea.iw.dto.Pqr;
-import co.edu.udea.iw.dto.Usuario;
 import co.edu.udea.iw.util.exception.DaoException;
 import co.edu.udea.iw.util.exception.ServiceException;
 /*
- * Pruebas para la clase PqrService
+ * Pruebas para la clase EmpleadoService
  * @author LUIS FERNANDO OROZCO
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @ContextConfiguration(locations="classpath:configuracion.xml")
-public class PqrServiceTest {
+public class EmpleadoServiceTest {
+	
 	@Autowired
-	PqrService pqrService;
+	EmpleadoService empleadoService;
 	/*
-	 * Prueba al metodo RealizarPqr
+	 * Prueba del metodo DelegarResponsabilidad
 	 */
 	@Test
-	public void testRealiarPqr() throws DaoException {
+	public void testDelegarResponsabilidad() {
+		Empleado empleado = new Empleado();
+		empleado.setCedula("987");
+		empleado.setCargo("atencion");
+		empleado.setEmail("f@udea.edu.co");
+		empleado.setNombre("fecho");
+		empleado.setPassword("123");
+		
 		Pqr pqr = new Pqr();
-		Usuario usuario = new Usuario();
-		usuario.setCedula("123");
-		usuario.setNombre("123");
-		usuario.setPassword("123");
-		usuario.setEmail("l@udea.edu.co");
+		pqr.setDescripcion("no me gusta el servicio");
+		pqr.setEstado("pendiente");
+		pqr.setFechaSolicitud(new Date());
+		pqr.setId(1);
+		pqr.setTipo("queja");
 		
 		try {
-			pqrService.realiarPqr(usuario, "queja", "no me gusta el servicio");
+			empleadoService.delegarResponsabilidad(empleado, pqr);
+		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			fail(e.getMessage());
 		} catch (ServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

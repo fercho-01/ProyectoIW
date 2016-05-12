@@ -8,48 +8,28 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/log4j"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/antlr-2.7.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/asm-3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/com.springsource.org.aopalliance-1.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/commons-collections-3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/commons-logging.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/hibernate3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jackson-core-asl-1.5.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jackson-jaxrs-1.5.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jackson-mapper-asl-1.5.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jackson-xc-1.5.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/javassist-3.12.0.GA.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jersey-apache-client-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jersey-atom-abdera-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jersey-client-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jersey-core-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jersey-guice-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jersey-json-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jersey-multipart-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jersey-server-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jersey-simple-server-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jersey-spring-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jettison-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jsr311-api-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/jta-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/mysql-connector-java-5.1.22-bin.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/oauth-client-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/oauth-server-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/oauth-signature-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/slf4j-api-1.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/slf4j-log4j12-1.7.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/spring-aop-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/spring-beans-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/spring-context-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/spring-core-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/spring-expression-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/spring-jdbc-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/spring-orm-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/spring-test-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/spring-tx-4.1.6.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Auxprog/Desktop/TodasLasLibrerias/spring-web-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/mysql-connector-java-5.1.22-bin.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/LibreriasHibernate/LibreriasHibernate/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/LibreriasHibernate/LibreriasHibernate/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/LibreriasHibernate/LibreriasHibernate/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/LibreriasHibernate/LibreriasHibernate/hibernate3.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/LibreriasHibernate/LibreriasHibernate/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/LibreriasHibernate/LibreriasHibernate/javassist-3.12.0.GA.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/LibreriasHibernate/LibreriasHibernate/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/LibreriasHibernate/LibreriasHibernate/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/LibreriasHibernate/LibreriasHibernate/slf4j-log4j12-1.7.2.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/Spring4/Spring4/com.springsource.org.aopalliance-1.0.0.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/Spring4/Spring4/commons-logging.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/Spring4/Spring4/spring-aop-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/Spring4/Spring4/spring-beans-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/Spring4/Spring4/spring-context-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/Spring4/Spring4/spring-core-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/Spring4/Spring4/spring-expression-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/Spring4/Spring4/spring-jdbc-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/Spring4/Spring4/spring-orm-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/Spring4/Spring4/spring-test-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/Spring4/Spring4/spring-tx-4.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/Udea/2016-1/Ingenieria web/Librerias/Spring4/Spring4/spring-web-4.1.6.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -9,6 +9,7 @@ import co.edu.udea.iw.dto.Pqr;
 import co.edu.udea.iw.dto.Usuario;
 import co.edu.udea.iw.util.exception.DaoException;
 import co.edu.udea.iw.util.exception.ServiceException;
+import co.edu.udea.iw.util.mail.Mail;
 import co.edu.udea.iw.util.validations.Validaciones;
 /*
  * Metodos para realizar operaciones con PQR
@@ -46,6 +47,8 @@ public class PqrService {
 		pqr.setFechaSolicitud(fecha);
 		pqr.setUsuario(usuario);
 		pqrDAO.guardar(pqr);
+		String correo = "Administrador@udea.edu.co";
+		Mail.send(correo, usuario, pqr);
 	}
 
 	public PqrDAO getPqrDAO() {
