@@ -13,7 +13,9 @@ import co.edu.udea.iw.dto.Empleado;
 import co.edu.udea.iw.util.exception.DaoException;
 /*
  * Esta clase implementa la interfaz de EmpleadoDAO
- * @author LUIS FERNANDO OROZCOs
+ * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 public class EmpleadoDAOHibernate extends HibernateDaoSupport implements EmpleadoDAO {
 

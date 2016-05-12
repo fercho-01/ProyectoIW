@@ -2,6 +2,8 @@ package co.edu.udea.iw.dto;
 /*
  * Clase dto para la tabla encuesta
  * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 
 import java.io.Serializable;

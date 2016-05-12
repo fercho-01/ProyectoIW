@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Date;
 
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ import co.edu.udea.iw.util.exception.ServiceException;
 @Transactional
 @ContextConfiguration(locations="classpath:configuracion.xml")
 public class PqrServiceTest {
+	
+	private static Logger logger=Logger.getLogger(PqrServiceTest.class);
 	@Autowired
 	PqrService pqrService;
 	/*
@@ -31,6 +34,7 @@ public class PqrServiceTest {
 	 */
 	@Test
 	public void testRealiarPqr() throws DaoException {
+		logger.info("ha iniciado la prueba de realizar PQR");
 		Pqr pqr = new Pqr();
 		Usuario usuario = new Usuario();
 		usuario.setCedula("123");
@@ -43,8 +47,36 @@ public class PqrServiceTest {
 		} catch (ServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			fail(e.getMessage());
+			fail();
+			logger.error("Ha ocurrido un error en el servicio", e);
 		}
+		
+		logger.info("la prueba de realizar PQR ha finalizado correctamente");
+	}
+	
+	
+	
+	/*
+	 * prueba al metodo realizarRevision
+	 */
+	
+	@Test
+	public void testRevision(){
+
+		logger.info("ha iniciado la prueba de realizar Revision");
+		try {
+			pqrService.realizarRevision();
+		} catch (DaoException e) {
+			e.printStackTrace();
+			fail();
+			logger.error(e.getMessage(),e);
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			fail();
+			e.printStackTrace();
+			logger.error(e.getMessage(),e);
+		}
+		logger.info("la prueba de realizar Revision ha finalizado de forma correcta");
 	}
 
 }

@@ -18,6 +18,8 @@ import co.edu.udea.iw.util.validations.Validaciones;
 /*
  * Esta clase provee los metodos necesarios por un usuario en la logica de negocio 
  * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 @Transactional
 public class UsuarioService {

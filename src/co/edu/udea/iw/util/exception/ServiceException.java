@@ -2,6 +2,8 @@ package co.edu.udea.iw.util.exception;
 /*
  * Esta clase captura las excepciones generadas por el sistema
  * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  **/
 public class ServiceException extends Exception{
 

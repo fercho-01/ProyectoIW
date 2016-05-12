@@ -4,7 +4,9 @@ import java.io.Serializable;
 
 /*
  * Clase DTO para la tabla usuario
- * @author LUIS FERNANDO OROZC
+ * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 public class Usuario implements Serializable{
 	

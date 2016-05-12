@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Date;
 
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ import co.edu.udea.iw.util.exception.ServiceException;
 @ContextConfiguration(locations="classpath:configuracion.xml")
 public class EmpleadoServiceTest {
 	
+	
+	private static Logger logger = Logger.getLogger(EmpleadoServiceTest.class);
+	
 	@Autowired
 	EmpleadoService empleadoService;
 	/*
@@ -31,6 +35,8 @@ public class EmpleadoServiceTest {
 	 */
 	@Test
 	public void testDelegarResponsabilidad() {
+		logger.info("Se inicia la prueba del metodo delegarResponsabilidad");
+		
 		Empleado empleado = new Empleado();
 		empleado.setCedula("987");
 		empleado.setCargo("atencion");
@@ -46,16 +52,21 @@ public class EmpleadoServiceTest {
 		pqr.setTipo("queja");
 		
 		try {
-			empleadoService.delegarResponsabilidad(empleado, pqr);
+			empleadoService.modificarPqr(empleado, pqr);
 		} catch (DaoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			fail(e.getMessage());
+			fail();
+			logger.error("ha ocurrido un error", e);
 		} catch (ServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			fail(e.getMessage());
+			logger.error("ha ocurrido un error", e);
+		
 		}
+		
+		logger.info("ha finalizado el test de delegar responsabilidad");
 	}
 
 }

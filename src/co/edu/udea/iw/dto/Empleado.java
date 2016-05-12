@@ -5,6 +5,8 @@ import java.io.Serializable;
 /*
  * Clase DTO para la tabla Empleado 
  * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 public class Empleado implements Serializable{
 	

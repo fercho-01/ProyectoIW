@@ -1,6 +1,9 @@
 package co.edu.udea.iw.dto;
 /*
  * Clase dto para la tabla pqr, un pqr es una solicitud
+ * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 
 import java.io.Serializable;

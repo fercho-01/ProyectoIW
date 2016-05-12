@@ -1,6 +1,7 @@
 package co.edu.udea.iw.service;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,8 @@ import co.edu.udea.iw.util.validations.Validaciones;
 /*
  * Metodos para realizar operaciones con PQR
  * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 
 @Transactional
@@ -49,6 +52,37 @@ public class PqrService {
 		pqrDAO.guardar(pqr);
 		String correo = "Administrador@udea.edu.co";
 		Mail.send(correo, usuario, pqr);
+	}
+	
+	public void realizarRevision() throws ServiceException, DaoException{
+		
+		String noRespondidos="Los pqrs que no han sido respuestos son:\n \n  ";
+		String insatisfechos= "Los usuarios que estan insatisfechos con el servicio son: \n \n";
+		List<Pqr> pqrs = null;
+		
+		try{
+			pqrs=pqrDAO.obtener();
+			
+			for(Pqr pqr: pqrs){
+				
+				if("pendiente".equals(pqr.getEstado())){
+					
+					noRespondidos= noRespondidos + "id: " +pqr.getId() + " empleado a cargo: " + pqr.getEmpleado() +"\n"; 
+				}
+				
+				if("insatisfecho".equals(pqr.getDescripcion())){
+					insatisfechos= insatisfechos + "usuario: " + pqr.getUsuario() + " id del pqr: "+ pqr.getId() +"\n";
+					
+					}
+				
+			}
+			String mensaje= noRespondidos + insatisfechos;
+			Mail.send("correoGerente@email.com", mensaje);
+			
+		}catch(DaoException e){
+			e.printStackTrace();
+			
+		}
 	}
 
 	public PqrDAO getPqrDAO() {

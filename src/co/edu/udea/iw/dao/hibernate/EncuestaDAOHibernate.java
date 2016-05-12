@@ -14,6 +14,8 @@ import co.edu.udea.iw.util.exception.DaoException;
 /*
  * Implementacion de los metodos de la interfaz EncuestaDAO
  * @auhtor LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 public class EncuestaDAOHibernate extends HibernateDaoSupport implements EncuestaDAO{
 

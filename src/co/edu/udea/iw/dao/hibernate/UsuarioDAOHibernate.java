@@ -14,6 +14,8 @@ import co.edu.udea.iw.util.exception.DaoException;
 /*
  * Implementacion de la interfaz UsuarioDAO
  * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioDAO{
 

@@ -6,6 +6,8 @@ import co.edu.udea.iw.util.exception.DaoException;
 /*
  * Interfaz que define los metodos que va a implementar el DAO de Pqr
  * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 public interface PqrDAO {
 	

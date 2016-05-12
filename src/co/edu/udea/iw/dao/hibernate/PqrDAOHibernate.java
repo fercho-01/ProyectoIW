@@ -14,6 +14,8 @@ import co.edu.udea.iw.util.exception.DaoException;
 /*
  * Implementacion de los metodos de la interfaz PqrDAO
  * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 public class PqrDAOHibernate extends HibernateDaoSupport implements PqrDAO{
 

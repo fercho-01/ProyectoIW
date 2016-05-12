@@ -10,6 +10,8 @@ import co.edu.udea.iw.util.mail.Mail;
 /*
  * Metodos para que un empleado realice las operaciones en el sistema
  * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 public class EmpleadoService {
 	PqrDAO pqrDAO;
@@ -18,7 +20,7 @@ public class EmpleadoService {
 	 * @param empleado Empleado al cual le toca responder el pqr
 	 * @param pqr Pqr a la cual se le va a asignar el empleado
 	 */
-	public void delegarResponsabilidad(Empleado empleado,Pqr pqr) throws DaoException, ServiceException{
+	public void modificarPqr(Empleado empleado,Pqr pqr) throws DaoException, ServiceException{
 		if(empleado == null){
 			throw new ServiceException("empleado null");
 		}

@@ -6,6 +6,8 @@ import co.edu.udea.iw.dto.Usuario;
 /*
  * Esta clase encapsula la logica para enviar las notificaciones por correo electronico
  * @author LUIS FERNANDO OROZCO
+ * @author GILBERTO RENDON
+ * @author JONATHAN TORRES
  */
 public class Mail {
 	/*
@@ -16,5 +18,8 @@ public class Mail {
 	 */
 	public static void send(String correo, Usuario usuario,Pqr pqr){
 		System.out.println("mensaje enviado");
+	}
+	public static void send(String correo, String mensaje){
+		System.out.println(mensaje);
 	}
 }
