@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.iw.dto.Empleado;
 import co.edu.udea.iw.dto.Pqr;
+import co.edu.udea.iw.util.encode.Cifrar;
 import co.edu.udea.iw.util.exception.DaoException;
 import co.edu.udea.iw.util.exception.ServiceException;
 /*
@@ -59,7 +60,7 @@ public class EmpleadoServiceTest {
 		} catch (DaoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			fail();
+			fail(e.getMessage());
 			logger.error("ha ocurrido un error", e);
 		} catch (ServiceException e) {
 			// TODO Auto-generated catch block
@@ -72,4 +73,21 @@ public class EmpleadoServiceTest {
 		logger.info("ha finalizado el test de delegar responsabilidad");
 	}
 
+	@Test
+	public void validar() {
+		Cifrar cifrar = new Cifrar();
+		try {
+			boolean validacion = empleadoService.validar("987", "983");
+			assertTrue(validacion);
+		} catch (ServiceException e) {
+			fail(e.getMessage());
+			e.printStackTrace();
+			logger.error("error en validacion",e);
+		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			fail(e.getMessage());
+			e.printStackTrace();
+			logger.error("error en validacion",e);
+		}
+	}
 }
