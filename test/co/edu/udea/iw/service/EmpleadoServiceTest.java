@@ -90,4 +90,20 @@ public class EmpleadoServiceTest {
 			logger.error("error en validacion",e);
 		}
 	}
+	
+	@Test
+	public void guardar() {
+
+		try {
+			empleadoService.registrarEmpleado("988","l@udea.edu.co","l","soporte","123");
+		} catch (ServiceException e) {
+			fail(e.getMessage());
+			e.printStackTrace();
+			logger.error("error al registrar empleado",e);
+		} catch (DaoException e) {
+			e.printStackTrace();
+			fail();
+			logger.error("error al registrar empleado",e);
+		}
+	}
 }

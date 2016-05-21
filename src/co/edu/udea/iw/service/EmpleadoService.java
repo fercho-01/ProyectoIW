@@ -74,6 +74,45 @@ public class EmpleadoService {
 		return true;
 	}
 	
+	/*
+	 * Metodo para registrar empleados
+	 * @param cedula Cedula del empleado
+	 * @param email Correo electronico del empleado
+	 * @param nombre NOmbre del empleado
+	 * @param cargo Cargo del empleado
+	 * @param password Contraseña del empleado
+	 */
+	public void registrarEmpleado(String cedula,String email,String nombre,String cargo,String password) throws ServiceException, DaoException{
+		Cifrar cifrar = new Cifrar();
+		
+		if(!Validaciones.isEmail(email)){
+			throw new ServiceException("Email no valido");
+		}
+		if(Validaciones.isTextoVacio(cargo)){
+			throw new ServiceException("cargo vacio");
+		}
+		if(Validaciones.isEmail(cedula)){
+			throw new ServiceException("cedula vacia");
+		}
+		if(Validaciones.isTextoVacio(nombre)){
+			throw new ServiceException("nombre vacio");
+		}
+		if(Validaciones.isTextoVacio(password)){
+			throw new ServiceException("password no valido");
+		}
+		if(empleadoDAO.obtener(cedula)!=null){
+			throw new ServiceException("empleado existente");
+		}
+		
+		Empleado empleado = new Empleado();
+		empleado.setCargo(cargo);
+		empleado.setCedula(cedula);
+		empleado.setEmail(email);
+		empleado.setNombre(nombre);
+		empleado.setPassword(cifrar.encrypt(password));
+		empleadoDAO.guardar(empleado);
+	}
+	
 	public PqrDAO getPqrDAO() {
 		return pqrDAO;
 	}
