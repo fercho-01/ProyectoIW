@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.iw.dao.EmpleadoDAO;
 import co.edu.udea.iw.dto.Empleado;
@@ -36,7 +37,7 @@ public class EmpleadoDAOHibernate extends HibernateDaoSupport implements Emplead
 		Session session = null;
 		try{
 			session = getHibernateTemplate().getSessionFactory().getCurrentSession();
-			session.update(empleado);
+			session.merge(empleado);
 		}catch(HibernateException e){
 			throw new DaoException();
 		}
@@ -52,7 +53,7 @@ public class EmpleadoDAOHibernate extends HibernateDaoSupport implements Emplead
 			session = getHibernateTemplate().getSessionFactory().getCurrentSession();
 			empleado = (Empleado)session.get(Empleado.class, cedula);
 		}catch(HibernateException e){
-			throw new DaoException();
+			throw new DaoException(e.getMessage());
 		}
 		return empleado;
 	}

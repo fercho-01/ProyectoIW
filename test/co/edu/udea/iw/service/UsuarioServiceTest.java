@@ -72,6 +72,24 @@ public class UsuarioServiceTest {
 		}
 		logger.info("la prueba de login ha finalizado");
 	}
-
-
+	
+	/**
+	 * Prueba al metodo modificarUsuario
+	 */
+	@Test
+	public void testModificarUsuario() {
+		try {
+			boolean check = usuarioService.modificarUsuario("123", "123", "luis", "l@udea.edu.co");
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.error("error al modificar un usuario",e);
+			fail();
+		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.error("error al modificar un usuario",e);
+			fail();
+		}
+	}
 }

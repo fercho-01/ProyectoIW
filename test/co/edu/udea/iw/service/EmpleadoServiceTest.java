@@ -106,4 +106,23 @@ public class EmpleadoServiceTest {
 			logger.error("error al registrar empleado",e);
 		}
 	}
+	
+	/**
+	 * Prueba para el metodo modificar empleado
+	 */
+	@Test
+	public void modificar() {
+
+		try {
+			empleadoService.modificarEmpleado("123", "123", "luis", "l@udea.edu.co", "supervisor");
+		} catch (ServiceException e) {
+			fail(e.getMessage());
+			e.printStackTrace();
+			logger.error("error al modificar empleado",e);
+		} catch (DaoException e) {
+			e.printStackTrace();
+			fail();
+			logger.error("error al modificar empleado",e);
+		}
+	}
 }

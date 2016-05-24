@@ -35,7 +35,6 @@ public class UsuarioService {
 	 */
 	@Transactional
 	public boolean crearUsuario(String cedula, String password, String nombre, String email) throws ServiceException, DaoException{
-		
 		if(Validaciones.isTextoVacio(cedula)){
 			throw new ServiceException("Cedula vacia");
 		}
@@ -91,13 +90,41 @@ public class UsuarioService {
 		return true;	
 	}
 	
-	/*
-	 * Crea una PQR (Peticion Queja o sujerencia)
-	 * @param cedula La cedula del usuario que realiza la solicitud
-	 * @param tipo El tipo de solicitud (Queja, Reclamo, sujerencia)
-	 * @param descripcion La descripcion de la solicitud
-	 * 
+	/**
+	 * Metodo para modificar los datos de un usuario
+	 * @param cedula Cedula del usuario
+	 * @param password Contraseña del usuario
+	 * @param nombre Nombre del usuario	
+	 * @param email Correo electronico del usuario
+	 * @return true si la operacion se realizo de manera exitosa, false de lo contrario
+	 * @throws ServiceException 
+	 * @throws DaoException 
 	 */
+	public boolean modificarUsuario(String cedula,String password,String nombre,String email) throws ServiceException, DaoException{
+		Cifrar cifrar = new Cifrar();
+		if(Validaciones.isTextoVacio(cedula)){
+			throw new ServiceException("cedula vacia");
+		}
+		if(Validaciones.isTextoVacio(password)){
+			throw new ServiceException("contraseña vacia");
+		}
+		if(Validaciones.isTextoVacio(nombre)){
+			throw new ServiceException("nombre vacio");
+		}
+		if(!Validaciones.isEmail(email)){
+			throw new ServiceException("email no valido");
+		}
+		if(usuarioDAO.obtener(cedula)==null){
+			throw new ServiceException("usuario no encontrado");
+		}
+		Usuario usuario = new Usuario();
+		usuario.setCedula(cedula);
+		usuario.setEmail(email);
+		usuario.setNombre(nombre);
+		usuario.setPassword(cifrar.encrypt(password));
+		usuarioDAO.modificar(usuario);
+		return true;
+	}
 	
 	public UsuarioDAO getUsuarioDAO() {
 		return usuarioDAO;

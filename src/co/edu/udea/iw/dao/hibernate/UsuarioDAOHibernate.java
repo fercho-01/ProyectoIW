@@ -35,7 +35,7 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		Session session = null;
 		try{
 			session=getHibernateTemplate().getSessionFactory().getCurrentSession();
-			session.update(usuario);
+			session.merge(usuario);
 		}catch(HibernateException e){
 			throw new DaoException(e);
 		}

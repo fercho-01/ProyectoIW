@@ -1,5 +1,7 @@
 package co.edu.udea.iw.service;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import co.edu.udea.iw.dao.EmpleadoDAO;
 import co.edu.udea.iw.dao.PqrDAO;
 import co.edu.udea.iw.dto.Empleado;
@@ -16,6 +18,7 @@ import co.edu.udea.iw.util.validations.Validaciones;
  * @author GILBERTO RENDON
  * @author JONATHAN TORRES
  */
+@Transactional
 public class EmpleadoService {
 	PqrDAO pqrDAO;
 	EmpleadoDAO empleadoDAO;
@@ -82,7 +85,7 @@ public class EmpleadoService {
 	 * @param cargo Cargo del empleado
 	 * @param password Contraseña del empleado
 	 */
-	public void registrarEmpleado(String cedula,String email,String nombre,String cargo,String password) throws ServiceException, DaoException{
+	public boolean registrarEmpleado(String cedula,String email,String nombre,String cargo,String password) throws ServiceException, DaoException{
 		Cifrar cifrar = new Cifrar();
 		
 		if(!Validaciones.isEmail(email)){
@@ -111,6 +114,48 @@ public class EmpleadoService {
 		empleado.setNombre(nombre);
 		empleado.setPassword(cifrar.encrypt(password));
 		empleadoDAO.guardar(empleado);
+		return true;
+	}
+	
+	/**
+	 * Metodo para modificar un empleado
+	 * @param cedula Cedula del empleado
+	 * @param password Contraseña del empleado
+	 * @param nombre Nombre del empleado
+	 * @param email Correo electronico del empleado
+	 * @param cargo Cargo del empleado
+	 * @return true si la operacion es realizada con exito de lo contrario false
+	 * @throws ServiceException
+	 * @throws DaoException
+	 */
+	public boolean modificarEmpleado(String cedula,String password,String nombre,String email,String cargo) throws ServiceException, DaoException{
+		Cifrar cifrar = new Cifrar();
+		if(Validaciones.isTextoVacio(cedula)){
+			throw new ServiceException("cedula vacia");
+		}
+		if(Validaciones.isTextoVacio(password)){
+			throw new ServiceException("contraseña vacia");
+		}
+		if(Validaciones.isTextoVacio(nombre)){
+			throw new ServiceException("nombre vacio");
+		}
+		if(Validaciones.isTextoVacio(cargo)){
+			throw new ServiceException("cargo vacio");
+		}
+		if(!Validaciones.isEmail(email)){
+			throw new ServiceException("email no valido");
+		}
+		if(empleadoDAO.obtener(cedula)==null){
+			throw new ServiceException("El empleado no existe");
+		}
+		Empleado empleado = new Empleado();
+		empleado.setCargo(cargo);
+		empleado.setCedula(cedula);
+		empleado.setEmail(email);
+		empleado.setNombre(nombre);
+		empleado.setPassword(cifrar.encrypt(password));
+		empleadoDAO.modificar(empleado);
+		return true;
 	}
 	
 	public PqrDAO getPqrDAO() {
