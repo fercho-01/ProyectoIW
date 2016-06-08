@@ -5,9 +5,13 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import co.edu.udea.iw.dao.EmpleadoDAO;
 import co.edu.udea.iw.dao.PqrDAO;
+import co.edu.udea.iw.dao.hibernate.PqrDAOHibernate;
+import co.edu.udea.iw.dto.Empleado;
 import co.edu.udea.iw.dto.Pqr;
 import co.edu.udea.iw.dto.Usuario;
+import co.edu.udea.iw.util.encode.Cifrar;
 import co.edu.udea.iw.util.exception.DaoException;
 import co.edu.udea.iw.util.exception.ServiceException;
 import co.edu.udea.iw.util.mail.Mail;
@@ -22,6 +26,7 @@ import co.edu.udea.iw.util.validations.Validaciones;
 @Transactional
 public class PqrService {
 	private PqrDAO pqrDAO;
+	private EmpleadoDAO empleadoDAO;
 	
 	/*
 	 * Metodo para almacenar un pqr nuevo
@@ -30,10 +35,10 @@ public class PqrService {
 	 * @param descripcion Descripcion con el motivo del pqr
 	 * @return true si se realiza la operacion exitosamente
 	 */
-	@Transactional
+	
 	public boolean realiarPqr(Usuario usuario,String tipo, String descripcion) throws ServiceException, DaoException{
 		if(usuario==null){
-			throw new ServiceException("cedula vacia");
+			throw new ServiceException("usuario no valido");
 		}
 		if(Validaciones.isTextoVacio(tipo)){
 			throw new ServiceException("Tipo de solicitud vacio");
@@ -43,15 +48,23 @@ public class PqrService {
 		}
 		
 		Date fecha = new Date();
-		
+		System.out.println("1");
 		Pqr pqr = new Pqr();
-		pqr.setTipo(tipo);
-		pqr.setDescripcion(descripcion);
-		pqr.setEstado("pendiente");
-		pqr.setFechaSolicitud(fecha);
+		System.out.println("2");
 		pqr.setUsuario(usuario);
+		System.out.println("3");
+		pqr.setDescripcion(descripcion);
+		System.out.println("4");
+		pqr.setEstado("pendiente");
+		System.out.println("5");
+		pqr.setFechaSolicitud(fecha);
+		System.out.println("6");
+		pqr.setTipo(tipo);
+		System.out.println("7");
 		pqrDAO.guardar(pqr);
+		System.out.println("8");
 		String correo = "Administrador@udea.edu.co";
+		System.out.println("9");
 		Mail.send(correo, usuario, pqr);
 		return true;
 	}
@@ -94,6 +107,43 @@ public class PqrService {
 
 	public void setPqrDAO(PqrDAO pqrDAO) {
 		this.pqrDAO = pqrDAO;
+	}
+	
+	
+	public boolean modificarPqr(int id, Empleado empleado, String respuesta) throws ServiceException, DaoException{
+		if(empleado==null){
+			throw new ServiceException("cedula del empleado vacia");
+		}
+		if(Validaciones.isTextoVacio(respuesta)){
+			throw new ServiceException("respuesta al pqr vacia");
+		}
+		Pqr pqr1=pqrDAO.obtener(id);
+		if(pqr1==null){
+			throw new ServiceException("El pqr no existe");
+		}
+		
+		System.out.println(pqr1.getEstado());
+		if(empleadoDAO.obtener(empleado.getCedula())==null){
+			throw new ServiceException("el empleado que responde no existe");
+		}
+		Pqr pqr = pqrDAO.obtener(id);
+		pqr.setFechaRespuesta(new Date());
+		pqr.setEstado("Respondido");
+		pqr.setEmpleado(empleado);
+		pqr.setRespuesta(respuesta);
+		pqrDAO.modificar(pqr);
+		return true;
+	
+		
+	}
+	
+	
+	public boolean Buscar(int id) throws ServiceException, DaoException{
+		Pqr pqr = pqrDAO.obtener(id);
+		if(pqr == null){
+			throw new ServiceException("el pqr no existe");
+		}
+		return true;
 	}
 	
 	
