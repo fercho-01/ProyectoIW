@@ -50,9 +50,6 @@ public class PqrDAOHibernate extends HibernateDaoSupport implements PqrDAO{
 		try{
 			session = getHibernateTemplate().getSessionFactory().getCurrentSession();
 			pqr = (Pqr)session.get(Pqr.class, id);
-			if(pqr==null){
-				System.out.println("pqr null");
-			}
 		}catch(HibernateException e){
 			throw new DaoException(e);
 		}catch(Exception e){
