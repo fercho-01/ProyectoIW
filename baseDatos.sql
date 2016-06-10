@@ -1,3 +1,5 @@
+/*jose gilberto*/
+
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE DATABASE `prueba` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `prueba`;

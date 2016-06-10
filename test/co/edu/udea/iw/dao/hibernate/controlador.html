@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="miAplicacion">
+ <head>
+ <title> Controlador </title>
+ <script src="../resources/angular.min.js"></script>
+ <script src="../resources/scriptControlador.js"></script>
+ </head>
+ <body>
+ <div ng-controller="Controlador">
+ <a href="#" ng-click="eliminar()"> Eliminar seleccionados </a>
+ <ul>
+ <li ng-repeat="item in lista">
+ <input type="checkbox" ng-model="item.seleccionado" />
+ <span> {{item.texto}} </span>
+ </li>
+ </ul>
+ <form ng-submit="agregar()">
+ <input type="text" ng-model="texto" />
+ <input type="submit" value="Agregar" />
+ </form>
+ </div>
+ </body>
+</html>
