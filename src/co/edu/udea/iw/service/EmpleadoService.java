@@ -158,6 +158,19 @@ public class EmpleadoService {
 		return true;
 	}
 	
+	/**
+	 * Metodo para obtener un empleado con su indentificacion
+	 * @param cedula identificacion del empleado
+	 * @return Objeto con el empleado, si el empleado no existe null
+	 * @throws ServiceException 
+	 * @throws DaoException 
+	 */
+	public Empleado obtener(String cedula) throws ServiceException, DaoException{
+		if(Validaciones.isTextoVacio(cedula)){
+			throw new ServiceException("la cedula no puede ser vacia");
+		}
+		return empleadoDAO.obtener(cedula);
+	}
 	public PqrDAO getPqrDAO() {
 		return pqrDAO;
 	}

@@ -111,29 +111,31 @@ public class PqrService {
 	
 	
 	public boolean modificarPqr(int id, Empleado empleado, String respuesta) throws ServiceException, DaoException{
+		//System.out.println("id: -- "+id);
 		if(empleado==null){
 			throw new ServiceException("cedula del empleado vacia");
 		}
 		if(Validaciones.isTextoVacio(respuesta)){
 			throw new ServiceException("respuesta al pqr vacia");
 		}
-		Pqr pqr1=pqrDAO.obtener(id);
-		if(pqr1==null){
+		
+		
+		Pqr pqr=pqrDAO.obtener(id);
+		if(pqr==null){
 			throw new ServiceException("El pqr no existe");
 		}
-		
-		System.out.println(pqr1.getEstado());
-		if(empleadoDAO.obtener(empleado.getCedula())==null){
-			throw new ServiceException("el empleado que responde no existe");
-		}
-		Pqr pqr = pqrDAO.obtener(id);
-		pqr.setFechaRespuesta(new Date());
+		//System.out.println("::::: "+pqr.getDescripcion());
+		/*
+		System.out.println("::::: "+pqr.getDescripcion());
+		Date fecha = new Date();
+		pqr.setFechaRespuesta(fecha);
 		pqr.setEstado("Respondido");
 		pqr.setEmpleado(empleado);
 		pqr.setRespuesta(respuesta);
-		pqrDAO.modificar(pqr);
+		//pqrDAO.modificar(pqr);
+		*/
 		return true;
-	
+		 
 		
 	}
 	

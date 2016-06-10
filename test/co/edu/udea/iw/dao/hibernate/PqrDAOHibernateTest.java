@@ -22,10 +22,9 @@ public class PqrDAOHibernateTest {
 	@Test
 	public void testObtenerInt() {
 		try {
-			Pqr pqr = pqrDAO.obtener(2);
+			Pqr pqr = pqrDAO.obtener(3);
 			assertTrue(pqr!=null);
 		} catch (DaoException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			fail(e.getMessage());
 		}

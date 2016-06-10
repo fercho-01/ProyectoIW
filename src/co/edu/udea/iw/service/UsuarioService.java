@@ -125,6 +125,19 @@ public class UsuarioService {
 		usuarioDAO.modificar(usuario);
 		return true;
 	}
+	/**
+	 * Metodo para obtener un usuario al proporcional la cedula.
+	 * @param cedula Identificacion del usuario
+	 * @return Objeto Usuario, en caso de no existir null
+	 * @throws ServiceException 
+	 * @throws DaoException 
+	 */
+	public Usuario obtener(String cedula) throws ServiceException, DaoException{
+		if(Validaciones.isTextoVacio(cedula)){
+			throw new ServiceException("cedula no valida");
+		}
+		return usuarioDAO.obtener(cedula);
+	}
 	
 	public UsuarioDAO getUsuarioDAO() {
 		return usuarioDAO;
