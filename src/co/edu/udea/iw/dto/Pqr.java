@@ -12,7 +12,7 @@ import java.util.Date;
 public class Pqr implements Serializable{
 	
 	//atributos
-	private int id;
+	private Integer id;
 	private Usuario usuario;
 	private String tipo;
 	private String estado;
@@ -23,10 +23,10 @@ public class Pqr implements Serializable{
 	private Date fechaSolicitud;
 	
 	//getters and setters
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Usuario getUsuario() {
