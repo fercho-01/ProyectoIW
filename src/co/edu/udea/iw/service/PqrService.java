@@ -110,7 +110,7 @@ public class PqrService {
 	}
 	
 	
-	public boolean modificarPqr(int id, Empleado empleado, String respuesta) throws ServiceException, DaoException{
+	public boolean modificarPqr(Integer id, Empleado empleado, String respuesta) throws ServiceException, DaoException{
 		//System.out.println("id: -- "+id);
 		if(empleado==null){
 			throw new ServiceException("cedula del empleado vacia");

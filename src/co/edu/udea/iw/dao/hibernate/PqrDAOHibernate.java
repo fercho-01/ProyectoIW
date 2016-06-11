@@ -44,7 +44,7 @@ public class PqrDAOHibernate extends HibernateDaoSupport implements PqrDAO{
 	}
 
 	@Override
-	public Pqr obtener(int id) throws DaoException {
+	public Pqr obtener(Integer id) throws DaoException {
 		Session session = null;
 		Pqr pqr = null;
 		try{

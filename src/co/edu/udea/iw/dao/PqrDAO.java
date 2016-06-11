@@ -28,7 +28,7 @@ public interface PqrDAO {
 	 * @param id Id del pqr a buscar
 	 * @return Objeto Pqr cuyo id es el proporcionado, si no existe null
 	 */
-	public Pqr obtener(int id)throws DaoException;
+	public Pqr obtener(Integer id)throws DaoException;
 	
 	/*
 	 * Obtiene lista de Pqrs presentes en la base de datos
