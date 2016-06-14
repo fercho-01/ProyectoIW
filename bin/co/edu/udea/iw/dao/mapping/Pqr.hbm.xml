@@ -26,7 +26,7 @@
             <column name="RESPUESTA" length="200"/>
         </property>
 
-        <many-to-one name="empleado" class="co.edu.udea.iw.dto.Empleado" fetch="join">
+        <many-to-one name="empleado" class="co.edu.udea.iw.dto.Empleado" fetch="select" lazy="false">
         	<column name="empleado" not-null="true" length="15"/>
         </many-to-one>
         

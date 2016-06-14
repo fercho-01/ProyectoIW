@@ -23,6 +23,8 @@ public class PqrDAOHibernateTest {
 	public void testObtenerInt() {
 		try {
 			Pqr pqr = pqrDAO.obtener(3);
+			
+			System.out.println(pqr.getDescripcion());
 			assertTrue(pqr!=null);
 		} catch (DaoException e) {
 			e.printStackTrace();
