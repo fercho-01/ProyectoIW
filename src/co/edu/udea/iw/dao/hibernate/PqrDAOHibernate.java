@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -49,7 +50,10 @@ public class PqrDAOHibernate extends HibernateDaoSupport implements PqrDAO{
 		Pqr pqr = null;
 		try{
 			session = getHibernateTemplate().getSessionFactory().getCurrentSession();
-			pqr = (Pqr)session.get(Pqr.class, id);
+			
+			Criteria criteria = session.createCriteria(Pqr.class).add(Restrictions.eq("id", id));
+			pqr= (Pqr)criteria.uniqueResult();
+			
 			if(pqr==null){
 				System.out.println("retorno null");
 			}
