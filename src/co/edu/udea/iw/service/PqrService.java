@@ -125,15 +125,14 @@ public class PqrService {
 			throw new ServiceException("El pqr no existe");
 		}
 		//System.out.println("::::: "+pqr.getDescripcion());
-		/*
 		System.out.println("::::: "+pqr.getDescripcion());
 		Date fecha = new Date();
 		pqr.setFechaRespuesta(fecha);
 		pqr.setEstado("Respondido");
 		pqr.setEmpleado(empleado);
 		pqr.setRespuesta(respuesta);
-		//pqrDAO.modificar(pqr);
-		*/
+		pqrDAO.modificar(pqr);
+		
 		return true;
 		 
 		
