@@ -79,4 +79,21 @@ public class PqrDAOHibernate extends HibernateDaoSupport implements PqrDAO{
 		return pqrs;
 	}
 
+	@Override
+	public List<Pqr> obtenerSinResponder() throws DaoException {
+		Session session = null;
+		List<Pqr> pqrs = null;
+		try{
+			session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+			Criteria criteria = session.createCriteria(Pqr.class);
+			criteria.add(Restrictions.eq("estado", "pendiente"));
+			pqrs = criteria.list();
+		}catch(HibernateException e){
+			throw new DaoException(e);
+		}
+		return pqrs;
+	}
+	
+	
+
 }

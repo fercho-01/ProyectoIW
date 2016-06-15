@@ -148,5 +148,9 @@ public class PqrService {
 		return true;
 	}
 	
+	public List<Pqr> obtenerNoResueltos() throws DaoException{
+		return pqrDAO.obtenerSinResponder();
+	}
+	
 	
 }

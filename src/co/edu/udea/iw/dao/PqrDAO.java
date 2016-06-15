@@ -34,4 +34,9 @@ public interface PqrDAO {
 	 * Obtiene lista de Pqrs presentes en la base de datos
 	 */
 	public List<Pqr> obtener()throws DaoException;
+	
+	/**
+	 * Obtiene lista de Pqrs sin responder
+	 */
+	public List<Pqr> obtenerSinResponder()throws DaoException;
 }
