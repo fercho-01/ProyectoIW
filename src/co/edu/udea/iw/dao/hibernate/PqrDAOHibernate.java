@@ -12,6 +12,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import co.edu.udea.iw.dao.PqrDAO;
 import co.edu.udea.iw.dto.Pqr;
+import co.edu.udea.iw.dto.Usuario;
 import co.edu.udea.iw.util.exception.DaoException;
 /*
  * Implementacion de los metodos de la interfaz PqrDAO
@@ -91,6 +92,24 @@ public class PqrDAOHibernate extends HibernateDaoSupport implements PqrDAO{
 		}catch(HibernateException e){
 			throw new DaoException(e);
 		}
+		return pqrs;
+	}
+
+	@Override
+	public List<Pqr> obtenerUsuario(Usuario usuario) throws DaoException {
+		System.out.println("user"+ usuario);
+		Session session = null;
+		List<Pqr> pqrs = null;
+		try{
+			session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+			Criteria criteria = session.createCriteria(Pqr.class);
+			criteria.add(Restrictions.eq("usuario", usuario));
+			pqrs = criteria.list();
+			System.out.println("prueba");
+		}catch(HibernateException e){
+			throw new DaoException(e);
+		}
+		
 		return pqrs;
 	}
 	

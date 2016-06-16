@@ -5,8 +5,8 @@
 <hibernate-mapping>
     <class name="co.edu.udea.iw.dto.Pqr" table="PQR">
         <id name="id" type="java.lang.Integer">
-            <column name="ID" not-null="true"/>
-            <generator class="assigned" />
+            <column name="ID" precision="12"/>
+            <generator class="increment" />
         </id>
 
         <many-to-one name="usuario" class="co.edu.udea.iw.dto.Usuario" fetch="join">

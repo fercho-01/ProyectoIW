@@ -2,6 +2,7 @@ package co.edu.udea.iw.dao;
 
 import java.util.List;
 import co.edu.udea.iw.dto.Pqr;
+import co.edu.udea.iw.dto.Usuario;
 import co.edu.udea.iw.util.exception.DaoException;
 /*
  * Interfaz que define los metodos que va a implementar el DAO de Pqr
@@ -39,4 +40,11 @@ public interface PqrDAO {
 	 * Obtiene lista de Pqrs sin responder
 	 */
 	public List<Pqr> obtenerSinResponder()throws DaoException;
+	
+	/**
+	 * Obtiene lista de Pqrs realizado por un usuario
+	 * @return
+	 * @throws DaoException
+	 */
+	public List<Pqr> obtenerUsuario(Usuario usuario)throws DaoException;
 }

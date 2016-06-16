@@ -3,10 +3,13 @@ package co.edu.udea.iw.service;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.GeneratedValue;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.udea.iw.dao.EmpleadoDAO;
 import co.edu.udea.iw.dao.PqrDAO;
+import co.edu.udea.iw.dao.UsuarioDAO;
 import co.edu.udea.iw.dao.hibernate.PqrDAOHibernate;
 import co.edu.udea.iw.dto.Empleado;
 import co.edu.udea.iw.dto.Pqr;
@@ -27,7 +30,7 @@ import co.edu.udea.iw.util.validations.Validaciones;
 public class PqrService {
 	private PqrDAO pqrDAO;
 	private EmpleadoDAO empleadoDAO;
-	
+	private UsuarioDAO usuarioDAO;
 	/*
 	 * Metodo para almacenar un pqr nuevo
 	 * @param usuario Usuario que realiza la solicitud
@@ -48,23 +51,16 @@ public class PqrService {
 		}
 		
 		Date fecha = new Date();
-		System.out.println("1");
 		Pqr pqr = new Pqr();
-		System.out.println("2");
+		//@GeneratedValue(strategy=GenerationType.AUTO)
+		//Integer value = new Integer();
 		pqr.setUsuario(usuario);
-		System.out.println("3");
 		pqr.setDescripcion(descripcion);
-		System.out.println("4");
 		pqr.setEstado("pendiente");
-		System.out.println("5");
 		pqr.setFechaSolicitud(fecha);
-		System.out.println("6");
 		pqr.setTipo(tipo);
-		System.out.println("7");
 		pqrDAO.guardar(pqr);
-		System.out.println("8");
 		String correo = "Administrador@udea.edu.co";
-		System.out.println("9");
 		Mail.send(correo, usuario, pqr);
 		return true;
 	}
@@ -150,6 +146,29 @@ public class PqrService {
 	public List<Pqr> obtenerNoResueltos() throws DaoException{
 		return pqrDAO.obtenerSinResponder();
 	}
+	
+	public List<Pqr> obtenerUsuario(String usuario) throws DaoException{
+		Usuario user = usuarioDAO.obtener(usuario);
+		
+		return pqrDAO.obtenerUsuario(user);
+	}
+
+	public EmpleadoDAO getEmpleadoDAO() {
+		return empleadoDAO;
+	}
+
+	public void setEmpleadoDAO(EmpleadoDAO empleadoDAO) {
+		this.empleadoDAO = empleadoDAO;
+	}
+
+	public UsuarioDAO getUsuarioDAO() {
+		return usuarioDAO;
+	}
+
+	public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
+		this.usuarioDAO = usuarioDAO;
+	}
+	
 	
 	
 }
